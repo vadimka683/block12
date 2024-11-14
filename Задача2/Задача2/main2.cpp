@@ -7,32 +7,32 @@ int main() {
 		cout << "Input " << i + 1 << " array number";
 		cin >> array[i];
 	}
-	cout << "Your array:\n";
-	int left_Mark = 0;
-	int Right_Marck = 15;
-	bool F = false;
+	cout << "Your array:\n"; 
+
 	int count = 0;
-	for (int g = 0; left_Mark < Right_Marck; g++) {
-		count++;
-		if (!F) {
-			for (int i = 0; i < Right_Marck; i++) {
-				if (array[i] < array[i + 1]) {
-					swap(array[i], array[i + 1]);
-				}
-				count++;
+	float lenght_array = 14;
+
+	while (lenght_array > 1) {
+		for (int g = 0; g+lenght_array < 15; g++) {
+			if (array[g] < array[g + (int)lenght_array]) {
+				swap(array[g], array[g + (int)lenght_array]);
 			}
-			Right_Marck--;
-			F = true;
+			count++;
 		}
-		else {
-			for (int h = 15; h > left_Mark; h--) {
-				if (array[h] > array[h - 1]) {
-					swap(array[h], array[h - 1]);
-				}
-				count++;
+		lenght_array /= 1.247;
+	}
+	for (int i = 0; i < 15; i++) {
+		bool F = false;
+		count++;
+		for (int g = 0; g < 15; g++) {
+			if (array[g] < array[g + 1]) {
+				swap(array[g], array[g + 1]);
+				F = true;
 			}
-			left_Mark++;
-			F = false;
+			count++;
+		}
+		if (!F) {
+			break;
 		}
 	}
 	cout << count;
